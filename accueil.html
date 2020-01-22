@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+    .principal{
+        height: 100%;
+    }
+  .plat-container{ 
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: space-between;
+      width: 100%;
+      margin-top: 20px;
+      
+
+  }
+  img {
+      margin: 10px;
+      width: 200px;
+      height: 100px;
+  }
+  .navbar-nav{
+      margin-left: 200px;
+      border: 2px solid blue;
+      border-radius: 10%;
+  }
+  .nav-item{
+      margin-left: 100px;
+  }
+  body{
+      background-image: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+  }
+  #carrousel{
+    position:relative;
+    height:200px;
+    width:700px;
+    margin:auto;
+}
+#carrousel ul li{
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+  </style>
+</head>
+<body>
+    <div id="principal">
+
+<nav class="navbar navbar-expand-sm bg-light">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="accueil" id="link-accueil">Accueil</a>
+      </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" id="link-plats-africains">Plats africains</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" id="link-plats-europeens">Plats europeens</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" id="link-plats-asiatiques">Plats asiatiques</a>
+    </li>
+    
+  </ul>
+  <p class="nav-item">
+    <label for="rechercher"> <input type="search" id="rechercher">  Rechercher</label>
+    </p>
+</nav>
+<br>
+
+<div class="container-fluid">
+
+    
+    
+<div>
+        
+    <div id="afrique">
+    <p class="titre">Plats africains</p>
+    <div id="plats-africains" class="plat-container senegal"></div>
+   </div>
+
+   <div id="europe">
+    <p class="titre">Plats europeens</p>
+    <div id="plats-europeens" class="plat-container europe"></div>
+</div>
+
+    <div id="asie">
+    <p class="titre">Plats asiatiques</p>
+    <div id="plats-asiatiques" class="plat-container asie"></div>
+</div>
+  
+</div>
+<div id="menu"></div>
+<div class="container card-columns" id="menu-africain" style="display: none; width: 100;">
+    <img src="menu/menu-africain" alt="">
+</div>
+<div class="container card-columns" id="menu-europeen" style="display: none;">
+    <img src="menu/menu-europeen" alt="">
+</div>
+<div class="container card-columns" id="menu-asiatique" style="display: none;">
+    <img src="menu/menu-asiatique" alt="">
+</div>
+</div>
+
+</div>
+<footer>
+
+</footer>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script>
+$(document).ready(function () {
+    for(var i = 1; i <= 7; i++){
+        $('#plats-africains').append('<a href="#"><img src=plats_sen/sen'+(i)+'.jpg width="100" height="100" /></a>');
+        $('#plats-europeens').append('<a href="#"><img src=plats_euro/eur'+(i)+'.jpg width="100" height="100" /></a>');
+        $('#plats-asiatiques').append('<a href="#"><img src=plats_ast/as'+(i)+'.jpg width="100" height="100" /></a>');
+    }
+    $('.titre').css('width', '100%')
+    $('.titre').css('color', 'green')
+    $('.titre').css('font-weight', 'bold')
+    $('.titre').css('font-style', 'italic')
+    $('.titre').css('text-align', 'center');
+
+//affichage plats africains
+$('#link-plats-africains').click(function(){
+$("#europe").fadeOut();
+$("#asie").fadeOut();
+$('#menu-europeen').fadeOut();
+$('#menu-asiatique').fadeOut();
+$('#menu-africain').fadeIn();
+$('#menu-europeen').fadeOut();
+$('#menu-asiatique').fadeOut();
+$('#afrique').fadeIn();
+
+   
+    
+    
+    
+    });
+
+    //affichage plats europeens
+
+    $('#link-plats-europeens').click(function(){
+$("#afrique").fadeOut();
+$("#asie").fadeOut();
+$('#menu-africain').fadeOut();
+$('#menu-asiatique').fadeOut();
+$('#menu-europeen').fadeIn();
+$('#europe').fadeIn();
+
+   
+    
+    
+    
+    });
+    //affichage plats asiatiques
+    $('#link-plats-asiatiques').click(function(){
+$("#europe").fadeOut();
+$("#afrique").fadeOut();
+$('#menu-europeen').fadeOut();
+$('#menu-africain').fadeOut();
+$('#menu-asiatique').fadeIn();
+$('#asie').fadeIn();
+
+   
+    
+    
+    
+    });
+
+    //affichage accueil
+    $('#link-accueil').click(function(){
+
+$('body').fadeIn(); 
+    
+    });
+
+
+});
+
+
+</script>
+</body>
+</html>
